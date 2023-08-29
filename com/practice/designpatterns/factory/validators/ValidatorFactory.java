@@ -18,8 +18,12 @@ public class ValidatorFactory {
     }
 
     public static ValidatorFactory getInstance(){
-        if (validatorFactory==null){
-            validatorFactory = new ValidatorFactory();
+        if (validatorFactory==null) {
+            synchronized (ValidatorFactory.class) {
+                if (validatorFactory == null) {
+                    validatorFactory = new ValidatorFactory();
+                }
+            }
         }
         return validatorFactory;
     }
