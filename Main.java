@@ -1,3 +1,6 @@
+import com.practice.designpatterns.adapter.PhonePe;
+import com.practice.designpatterns.adapter.PhonePeSbiBankApi;
+import com.practice.designpatterns.adapter.PhonePeYesBankApi;
 import com.practice.designpatterns.builder.Student;
 import com.practice.designpatterns.factory.models.Address;
 import com.practice.designpatterns.factory.models.Country;
@@ -21,6 +24,10 @@ public class Main {
         System.out.println("Student 1 : "+student1.toString());
         System.out.println("Student 2 : "+student2.toString());
 
+
+        // Adapter pattern classes being called
+        PhonePe phonePe = new PhonePe(new PhonePeYesBankApi());
+        phonePe.doSomething();
 
 
     }
