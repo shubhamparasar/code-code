@@ -5,6 +5,9 @@ import com.practice.designpatterns.builder.Student;
 import com.practice.designpatterns.factory.models.Address;
 import com.practice.designpatterns.factory.models.Country;
 import com.practice.designpatterns.factory.validators.ValidatorFactory;
+import com.practice.designpatterns.observer.EmailSender;
+import com.practice.designpatterns.observer.Flipkart;
+import com.practice.designpatterns.observer.MsgSender;
 
 public class Main {
     public static void main(String[] args) {
@@ -28,6 +31,12 @@ public class Main {
         // Adapter pattern classes being called
         PhonePe phonePe = new PhonePe(new PhonePeYesBankApi());
         phonePe.doSomething();
+
+        // Observer pattern classes being called
+        EmailSender emailSender = new EmailSender();
+        MsgSender msgSender = new MsgSender();
+        Flipkart flipkart = Flipkart.getInstance();
+        flipkart.postPurchaseActions();
 
 
     }
