@@ -8,6 +8,9 @@ import com.practice.designpatterns.factory.validators.ValidatorFactory;
 import com.practice.designpatterns.observer.EmailSender;
 import com.practice.designpatterns.observer.Flipkart;
 import com.practice.designpatterns.observer.MsgSender;
+import com.practice.designpatterns.strategy.GoogleMap;
+import com.practice.designpatterns.strategy.PathFinder;
+import com.practice.designpatterns.strategy.PathFinderStrategy;
 
 public class Main {
     public static void main(String[] args) {
@@ -37,6 +40,11 @@ public class Main {
         MsgSender msgSender = new MsgSender();
         Flipkart flipkart = Flipkart.getInstance();
         flipkart.postPurchaseActions();
+
+        // Strategy pattern classes being called
+        PathFinderStrategy pathFinderStrategy= GoogleMap.getInstance().getFactory(PathFinder.BIKE);
+        GoogleMap googleMap = GoogleMap.getInstance();
+        googleMap.findPath("Bangalore","Delhi",pathFinderStrategy);
 
 
     }
